@@ -34,8 +34,8 @@ public class PaswordTest {
     @Test
     public void testContrasenaConEspacio() {
         try {
-            String contrasena = "Contrasena ConEspacio1@";
-            String confirmarContrasena = "Contrasena ConEspacio1@";
+            String contrasena = "Juan 37$*";
+            String confirmarContrasena = "Juan 37$*";
             Pasword.validatePassword(contrasena, confirmarContrasena);
             fail("Se esperaba una excepción debido a la presencia de espacios en la contraseña.");
         } catch (Exception e) {
@@ -46,8 +46,8 @@ public class PaswordTest {
     @Test
     public void testContrasenaFaltaTiposCaracteres() {
         try {
-            String contrasena = "nopassword";
-            String confirmarContrasena = "nopassword";
+            String contrasena = "faltaCaracteres";
+            String confirmarContrasena = "faltaCaracteres";
             Pasword.validatePassword(contrasena, confirmarContrasena);
             fail("Se esperaba una excepción debido a la falta de caracteres requeridos en la contraseña.");
         } catch (Exception e) {
@@ -58,8 +58,8 @@ public class PaswordTest {
     @Test
     public void testContrasenasNoCoinciden() {
         try {
-            String contrasena = "Contrasena1@";
-            String confirmarContrasena = "OtraContrasena1@";
+            String contrasena = "Juan37$*";
+            String confirmarContrasena = "Juan37$-";
             Pasword.validatePassword(contrasena, confirmarContrasena);
             fail("Se esperaba una excepción debido a la falta de coincidencia entre las contraseñas.");
         } catch (Exception e) {
